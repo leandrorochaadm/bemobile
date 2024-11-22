@@ -1,3 +1,25 @@
+# Pre-requisitos
+
+É necessário ter instalado o [Flutter](https://flutter.dev/) nesta versão:
+
+```
+Flutter 3.24.5 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision dec2ee5c1f (9 days ago) • 2024-11-13 11:13:06 -0800
+Engine • revision a18df97ca5
+Tools • Dart 3.5.4 • DevTools 2.37.3
+```
+
+Para conferir se a versão esta correta, execute o comando `flutter --version` no terminal.
+
+# Instruções pra instalar e rodar o projeto
+
+Para instalar as ferramentas, execute o comando `flutter pub get` no terminal.
+
+Para rodar o projeto, execute o comando `flutter run` no terminal.
+
+Para gerar o APK do o projeto para instalar no celular Android, execute o comando `flutter build apk` no terminal.
+
+
 # Teste Técnico Mobile BeTalent
 
 Este é um repositório para Testes Técnicos em Mobile da Be. Ele é destinado a pessoas que participam de nossos processos seletivos. 
