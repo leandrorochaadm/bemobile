@@ -11,11 +11,15 @@ Tools • Dart 3.5.4 • DevTools 2.37.3
 
 Para conferir se a versão esta correta, execute o comando `flutter --version` no terminal.
 
+Para conferir se o Flutter foi instalado corretamente, execute o comando `flutter doctor` no terminal.
+
 # Instruções pra instalar e rodar o projeto
 
-Para instalar as ferramentas, execute o comando `flutter pub get` no terminal.
+Antes de rodar o projeto configure a URL com o endereço IP da sua maquina no arquivo `lib/core/dio_client.dart` para o app consumir a API simulada localmente.
 
-Para rodar o projeto, execute o comando `flutter run` no terminal.
+No execute no terminal o comando `npx json-server database.json`, para iniciar o json-server para simular a API no arquivo `database.json`.
+
+Em outro terminal execute o comando `flutter run` para rodar o projeto.
 
 Para gerar o APK do o projeto para instalar no celular Android, execute o comando `flutter build apk` no terminal.
 
