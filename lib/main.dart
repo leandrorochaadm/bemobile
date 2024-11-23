@@ -1,6 +1,11 @@
+import 'package:bemobile/presentation/pages/employee_page.dart';
 import 'package:flutter/material.dart';
 
+import 'core/service_locator.dart';
+import 'presentation/notifiers/employee_notifier.dart';
+
 void main() {
+  setupServiceLocator();
   runApp(const MainApp());
 }
 
@@ -9,12 +14,8 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return MaterialApp(
+      home: EmployeesPage(employeeNotifier: sl<EmployeeNotifier>()),
     );
   }
 }
