@@ -26,18 +26,13 @@ class UserTileWidget extends StatelessWidget {
         childrenPadding: const EdgeInsets.all(AppSpaces.md),
         tilePadding: const EdgeInsets.all(AppSpaces.md),
         leading: CircleAvatar(
-            radius: AppSpaces.xl, backgroundImage: NetworkImage(image)),
-        title: Text(
-          name,
-          style: Theme.of(context).textTheme.displaySmall,
-          // style: const TextStyle(
-          //     color: AppColors.black,
-          //     fontSize: 16,
-          //     fontWeight: FontWeight.w500),
+          radius: AppSpaces.xl,
+          backgroundImage: NetworkImage(image),
         ),
+        title: Text(name, style: Theme.of(context).textTheme.displaySmall),
         trailing: const Icon(
           Icons.expand_more,
-          size: AppSpaces.sm,
+          size: AppSpaces.xl,
           color: AppColors.bluePrimary,
         ),
         children: [
@@ -76,22 +71,8 @@ class UserTileWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
-            label,
-            style: Theme.of(context).textTheme.displayMedium,
-            // style: const TextStyle(
-            //   fontWeight: FontWeight.bold,
-            //   color: AppColors.black,
-            // )
-          ),
-          Text(
-            value,
-            style: Theme.of(context).textTheme.displaySmall,
-            // style: const TextStyle(
-            //   fontWeight: FontWeight.w400,
-            //   color: AppColors.black,
-            // ),
-          ),
+          Text(label, style: Theme.of(context).textTheme.displayMedium),
+          Text(value, style: Theme.of(context).textTheme.displaySmall),
         ],
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../domain/use_case/get_employee_use_case.dart';
+import '../models_ui/employees_model_ui.dart';
 import '../states/employee_state.dart';
 
 class EmployeeNotifier extends ValueNotifier<EmployeeState> {
@@ -22,6 +23,9 @@ class EmployeeNotifier extends ValueNotifier<EmployeeState> {
       return;
     }
 
-    value = EmployeeLoadedState(employees);
+    final employeesFormatted =
+        employees.map((entity) => EmployeeModelUI.fromEntity(entity)).toList();
+
+    value = EmployeeLoadedState(employeesFormatted);
   }
 }

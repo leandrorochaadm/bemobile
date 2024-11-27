@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../core/theme/theme.dart';
 import '../notifiers/employee_notifier.dart';
 import '../states/employee_state.dart';
 import 'widgets/user_tile_widget.dart';
@@ -30,12 +31,13 @@ class EmployeesPage extends StatelessWidget {
             final employees = state.employees;
             return ListView.builder(
               itemCount: employees.length,
+              padding: const EdgeInsets.all(AppSpaces.md),
               itemBuilder: (context, index) {
                 final employee = employees[index];
                 return UserTileWidget(
                   name: employee.name,
                   position: employee.job,
-                  admissionDate: employee.admissionDate.toString(),
+                  admissionDate: employee.admissionDate,
                   phone: employee.phone,
                   image: employee.image,
                 );

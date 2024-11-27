@@ -1,4 +1,4 @@
-import '../../domain/entities/employee_entity.dart';
+import 'package:bemobile/presentation/models_ui/employees_model_ui.dart';
 
 abstract class EmployeeState {}
 
@@ -9,7 +9,7 @@ class EmployeeEmptyState extends EmployeeState {}
 class EmployeeLoadingState extends EmployeeState {}
 
 class EmployeeLoadedState extends EmployeeState {
-  final List<EmployeeEntity> employees;
+  final List<EmployeeModelUI> employees;
   EmployeeLoadedState(this.employees);
 }
 
