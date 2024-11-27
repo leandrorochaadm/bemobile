@@ -37,12 +37,8 @@ class EmployeesPage extends StatelessWidget {
                   position: employee.job,
                   admissionDate: employee.admissionDate.toString(),
                   phone: employee.phone,
+                  image: employee.image,
                 );
-                // return ListTile(
-                //   leading: Image.network(employee.image),
-                //   title: Text(employee.name),
-                //   subtitle: Text(employee.job),
-                // );
               },
             );
           } else if (state is EmployeeErrorState) {

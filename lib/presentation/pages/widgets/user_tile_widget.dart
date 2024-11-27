@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/theme/theme.dart';
+
 class UserTileWidget extends StatelessWidget {
   final String name;
   final String position;
   final String admissionDate;
   final String phone;
+  final String image;
 
   const UserTileWidget({
     super.key,
@@ -12,46 +15,83 @@ class UserTileWidget extends StatelessWidget {
     required this.position,
     required this.admissionDate,
     required this.phone,
+    required this.image,
   });
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       elevation: 2,
       child: ExpansionTile(
-        leading: const CircleAvatar(
-          backgroundColor: Colors.green,
-          child: Icon(Icons.person, color: Colors.white),
+        childrenPadding: const EdgeInsets.all(AppSpaces.md),
+        tilePadding: const EdgeInsets.all(AppSpaces.md),
+        leading: CircleAvatar(
+            radius: AppSpaces.xl, backgroundImage: NetworkImage(image)),
+        title: Text(
+          name,
+          style: Theme.of(context).textTheme.displaySmall,
+          // style: const TextStyle(
+          //     color: AppColors.black,
+          //     fontSize: 16,
+          //     fontWeight: FontWeight.w500),
         ),
-        title: Text(name),
-        trailing: const Icon(Icons.expand_more),
+        trailing: const Icon(
+          Icons.expand_more,
+          size: AppSpaces.sm,
+          color: AppColors.bluePrimary,
+        ),
         children: [
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _buildRow('Cargo', position),
-                _buildRow('Data de admissão', admissionDate),
-                _buildRow('Telefone', phone),
-              ],
-            ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildRow(
+                label: 'Cargo',
+                value: position,
+                context: context,
+              ),
+              _buildRow(
+                label: 'Data de admissão',
+                value: admissionDate,
+                context: context,
+              ),
+              _buildRow(
+                label: 'Telefone',
+                value: phone,
+                context: context,
+              ),
+            ],
           ),
         ],
       ),
     );
   }
 
-  Widget _buildRow(String label, String value) {
+  Widget _buildRow({
+    required BuildContext context,
+    required String label,
+    required String value,
+  }) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4.0),
+      padding: const EdgeInsets.symmetric(vertical: AppSpaces.xxs),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(label, style: const TextStyle(fontWeight: FontWeight.bold)),
-          Text(value),
+          Text(
+            label,
+            style: Theme.of(context).textTheme.displayMedium,
+            // style: const TextStyle(
+            //   fontWeight: FontWeight.bold,
+            //   color: AppColors.black,
+            // )
+          ),
+          Text(
+            value,
+            style: Theme.of(context).textTheme.displaySmall,
+            // style: const TextStyle(
+            //   fontWeight: FontWeight.w400,
+            //   color: AppColors.black,
+            // ),
+          ),
         ],
       ),
     );

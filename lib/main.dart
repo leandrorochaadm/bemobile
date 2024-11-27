@@ -1,8 +1,9 @@
-import 'package:bemobile/core/app_config.dart';
-import 'package:bemobile/presentation/pages/employees_page.dart';
 import 'package:flutter/material.dart';
 
+import 'core/app_config.dart';
 import 'core/app_depencendies.dart';
+import 'core/theme/theme.dart';
+import 'presentation/pages/employees_page.dart';
 
 void main() {
   debugPrint('Base URL: ${AppConfig.baseUrl}');
@@ -17,6 +18,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'BeMobile',
+      theme: AppTheme.lightTheme,
 
       // poderia ser utilizado um class AppRoutes, porem como é um app de apenas uma tela, nenhuma rota seria necessaria
       home: EmployeesPage(
