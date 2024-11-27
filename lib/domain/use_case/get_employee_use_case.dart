@@ -13,17 +13,17 @@ class GetEmployeesUseCase {
       return (null, employees);
     } on ConnectionException catch (_) {
       return (
-        'Erro de conexão. Verifique sua internet e tente novamente.',
+        'Erro na conexão.\nVerifique sua internet e tente novamente.',
         <EmployeeEntity>[]
       );
     } on BadResponseException catch (_) {
       return (
-        'Erro no servidor. Tente novamente mais tarde.',
+        'Erro no servidor.\nTente novamente mais tarde.',
         <EmployeeEntity>[]
       );
     } catch (_) {
       return (
-        'Erro desconhecido. Por favor, entre em contato com o suporte.',
+        'Erro desconhecido.\nPor favor, entre em contato com o suporte.',
         <EmployeeEntity>[]
       );
     }

@@ -1,5 +1,4 @@
-import 'package:bemobile/data/repositories/employee_api_repository.dart';
-
+import '../data/repositories/employee_api_repository.dart';
 import '../domain/use_case/get_employee_use_case.dart';
 import '../presentation/notifiers/employee_notifier.dart';
 import 'dio_client.dart';

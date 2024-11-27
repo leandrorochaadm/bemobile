@@ -1,9 +1,11 @@
+import 'package:bemobile/core/app_config.dart';
 import 'package:bemobile/presentation/pages/employees_page.dart';
 import 'package:flutter/material.dart';
 
 import 'core/app_depencendies.dart';
 
 void main() {
+  debugPrint('Base URL: ${AppConfig.baseUrl}');
   runApp(const MainApp());
 }
 

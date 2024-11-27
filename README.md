@@ -15,11 +15,10 @@ Para conferir se o Flutter foi instalado corretamente, execute o comando `flutte
 
 # Instruções pra instalar e rodar o projeto
 
-Antes de rodar o projeto configure a URL com o endereço IP da sua maquina no arquivo `lib/core/dio_client.dart` para o app consumir a API simulada localmente.
 
 No execute no terminal o comando `npx json-server database.json`, para iniciar o json-server para simular a API no arquivo `database.json`.
 
-Em outro terminal execute o comando `flutter run` para rodar o projeto.
+Em outro terminal execute o comando `flutter run --dart-define=API_BASE_URL=http://endreço_IP_da_sua_máquina:3000` ou a URL de outra api para rodar o projeto.
 
 Para gerar o APK do o projeto para instalar no celular Android, execute o comando `flutter build apk` no terminal.
 
