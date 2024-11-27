@@ -31,9 +31,8 @@ class UserTileWidget extends StatelessWidget {
     return ExpansionTile(
       childrenPadding: const EdgeInsets.all(AppSpaces.md),
       tilePadding: const EdgeInsets.all(AppSpaces.sm),
-      // tilePadding: EdgeInsets.zero,
-      // childrenPadding: EdgeInsets.zero,
       shape: const RoundedRectangleBorder(),
+      // visualDensity: VisualDensity.standard,
       leading: CircleAvatar(
         radius: AppSpaces.xl,
         backgroundImage: NetworkImage(image),
