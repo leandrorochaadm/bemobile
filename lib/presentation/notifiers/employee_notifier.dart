@@ -11,6 +11,7 @@ class EmployeeNotifier extends ValueNotifier<EmployeeState> {
 
   Future<void> fetchEmployees() async {
     value = EmployeeLoadingState();
+
     final (error, employees) = await getEmployeesUseCase();
 
     if (error != null) {
