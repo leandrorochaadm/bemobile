@@ -29,19 +29,33 @@ class EmployeesPage extends StatelessWidget {
             return const Center(child: CircularProgressIndicator());
           } else if (state is EmployeeLoadedState) {
             final employees = state.employees;
-            return ListView.builder(
-              itemCount: employees.length,
-              padding: const EdgeInsets.all(AppSpaces.md),
-              itemBuilder: (context, index) {
-                final employee = employees[index];
-                return UserTileWidget(
-                  name: employee.name,
-                  position: employee.job,
-                  admissionDate: employee.admissionDate,
-                  phone: employee.phone,
-                  image: employee.image,
-                );
-              },
+            return Container(
+              margin: const EdgeInsets.all(16.0),
+              // padding: const EdgeInsets.all(8.0),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(
+                  color: AppColors.gray10, // Cor da borda
+                  width: 1.0, // Largura da borda
+                ),
+                borderRadius: BorderRadius.circular(8.0), // Bordas arredondadas
+              ),
+              child: ListView.separated(
+                itemCount: employees.length,
+                padding: EdgeInsets.zero,
+                separatorBuilder: (context, index) =>
+                    const Divider(color: AppColors.gray10, thickness: 1),
+                itemBuilder: (context, index) {
+                  final employee = employees[index];
+                  return UserTileWidget(
+                    name: employee.name,
+                    position: employee.job,
+                    admissionDate: employee.admissionDate,
+                    phone: employee.phone,
+                    image: employee.image,
+                  );
+                },
+              ),
             );
           } else if (state is EmployeeErrorState) {
             final message = state.message;

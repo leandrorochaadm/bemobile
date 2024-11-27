@@ -30,9 +30,10 @@ class UserTileWidget extends StatelessWidget {
     );
     return ExpansionTile(
       childrenPadding: const EdgeInsets.all(AppSpaces.md),
-      tilePadding: const EdgeInsets.all(AppSpaces.md),
-      shape: const RoundedRectangleBorder(
-          side: BorderSide(color: AppColors.gray10, width: 2)),
+      tilePadding: const EdgeInsets.all(AppSpaces.sm),
+      // tilePadding: EdgeInsets.zero,
+      // childrenPadding: EdgeInsets.zero,
+      shape: const RoundedRectangleBorder(),
       leading: CircleAvatar(
         radius: AppSpaces.xl,
         backgroundImage: NetworkImage(image),
@@ -47,6 +48,7 @@ class UserTileWidget extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(height: AppSpaces.md),
             _buildRow(
               label: 'Cargo',
               value: position,
