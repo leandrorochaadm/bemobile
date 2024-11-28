@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../core/theme/theme.dart';
 import 'dashed_line_widget.dart';
 
-class UserTileWidget extends StatelessWidget {
+class UserTileWidget extends StatefulWidget {
   final String name;
   final String position;
   final String admissionDate;
@@ -20,6 +20,13 @@ class UserTileWidget extends StatelessWidget {
   });
 
   @override
+  State<UserTileWidget> createState() => _UserTileWidgetState();
+}
+
+bool isExpanded = false;
+
+class _UserTileWidgetState extends State<UserTileWidget> {
+  @override
   Widget build(BuildContext context) {
     var lineWidget = const DashedLineWidget(
       color: AppColors.gray10,
@@ -32,14 +39,18 @@ class UserTileWidget extends StatelessWidget {
       childrenPadding: const EdgeInsets.all(AppSpaces.md),
       tilePadding: const EdgeInsets.all(AppSpaces.sm),
       shape: const RoundedRectangleBorder(),
-      // visualDensity: VisualDensity.standard,
+      onExpansionChanged: (value) {
+        setState(() {
+          isExpanded = value;
+        });
+      },
       leading: CircleAvatar(
         radius: AppSpaces.xl,
-        backgroundImage: NetworkImage(image),
+        backgroundImage: NetworkImage(widget.image),
       ),
-      title: Text(name, style: Theme.of(context).textTheme.displaySmall),
-      trailing: const Icon(
-        Icons.expand_more,
+      title: Text(widget.name, style: Theme.of(context).textTheme.displaySmall),
+      trailing: Icon(
+        isExpanded ? Icons.expand_less : Icons.expand_more,
         size: AppSpaces.xl,
         color: AppColors.bluePrimary,
       ),
@@ -50,21 +61,21 @@ class UserTileWidget extends StatelessWidget {
             const SizedBox(height: AppSpaces.md),
             _buildRow(
               label: 'Cargo',
-              value: position,
+              value: widget.position,
               context: context,
             ),
             lineWidget,
             const SizedBox(height: AppSpaces.md),
             _buildRow(
               label: 'Data de admissão',
-              value: admissionDate,
+              value: widget.admissionDate,
               context: context,
             ),
             lineWidget,
             const SizedBox(height: AppSpaces.md),
             _buildRow(
               label: 'Telefone',
-              value: phone,
+              value: widget.phone,
               context: context,
             ),
             lineWidget,

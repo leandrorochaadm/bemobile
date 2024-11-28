@@ -15,7 +15,7 @@ class EmployeeTableHeadWidget extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            flex: 1,
+            flex: 2,
             child: Center(
               child: Text(
                 'Foto',
@@ -25,12 +25,20 @@ class EmployeeTableHeadWidget extends StatelessWidget {
           ),
           const SizedBox(width: AppSpaces.xl),
           Expanded(
-            flex: 6,
+            flex: 9,
             child: Text(
               'Nome',
               style: Theme.of(context).textTheme.displayMedium,
             ),
           ),
+          const SizedBox(width: AppSpaces.xl),
+          const Expanded(
+              flex: 1,
+              child: Icon(
+                Icons.circle,
+                color: AppColors.black,
+                size: AppSpaces.xs,
+              )),
         ],
       ),
     );
