@@ -45,31 +45,9 @@ class EmployeesPage extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: AppSpaces.md),
-              TextField(
-                decoration: InputDecoration(
-                  prefixIcon: const Icon(Icons.search),
-                  hintText: 'Pesquisar',
-                  hintStyle: Theme.of(context).textTheme.displaySmall,
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide.none,
-                    borderRadius: BorderRadius.circular(AppSpaces.xxxxxl),
-                  ),
-                  filled: true,
-                  fillColor: AppColors.gray05,
-                  contentPadding: const EdgeInsets.symmetric(
-                    vertical: AppSpaces.xs,
-                    horizontal: AppSpaces.md,
-                  ),
-                ),
-                textInputAction: TextInputAction.search,
-                style: Theme.of(context).textTheme.displaySmall,
-                onSubmitted: (value) {
-                  employeeNotifier.searchEmployees(value);
-                },
-              ),
+              FieldSearchWidget(employeeNotifier: employeeNotifier),
               const SizedBox(height: AppSpaces.lg),
-              Expanded(
-                  child: EmployeeTable(employeeNotifier: employeeNotifier)),
+              EmployeeTable(employeeNotifier: employeeNotifier),
             ],
           ),
         ),

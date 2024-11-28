@@ -16,17 +16,19 @@ class EmployeeTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        border: Border.all(color: AppColors.gray10, width: 1.0),
-        borderRadius: BorderRadius.circular(AppSpaces.xs),
-      ),
-      child: Column(
-        children: [
-          const EmployeeTableHeadWidget(),
-          const Divider(color: AppColors.gray10, thickness: 1, height: 0),
-          EmployeeListWidget(employeeNotifier: employeeNotifier),
-        ],
+    return Expanded(
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(color: AppColors.gray10, width: 1.0),
+          borderRadius: BorderRadius.circular(AppSpaces.xs),
+        ),
+        child: Column(
+          children: [
+            const EmployeeTableHeadWidget(),
+            const Divider(color: AppColors.gray10, thickness: 1, height: 0),
+            EmployeeListWidget(employeeNotifier: employeeNotifier),
+          ],
+        ),
       ),
     );
   }

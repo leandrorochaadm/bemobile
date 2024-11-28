@@ -9,6 +9,8 @@ class EmployeeNotifier extends ValueNotifier<EmployeeState> {
 
   EmployeeNotifier(this.getEmployeesUseCase) : super(EmployeeInitialState());
 
+  final searchController = TextEditingController();
+
   Future<void> fetchEmployees() async {
     value = EmployeeLoadingState();
 
@@ -53,5 +55,10 @@ class EmployeeNotifier extends ValueNotifier<EmployeeState> {
         value = EmployeeEmptyState();
       }
     }
+  }
+
+  void clearSearch() {
+    fetchEmployees();
+    searchController.clear();
   }
 }
