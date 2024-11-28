@@ -1,4 +1,3 @@
-import 'package:bemobile/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/theme/app_spacing.dart';
@@ -20,21 +19,7 @@ class EmployeesPage extends StatelessWidget {
           padding: const EdgeInsets.all(AppSpaces.md),
           child: Column(
             children: [
-              Container(
-                color: Colors.red,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const CircleAvatar(
-                      child: Text('CG'),
-                      backgroundColor: AppColors.gray05,
-                    ),
-                    IconButton(
-                        onPressed: () {}, icon: const Icon(Icons.add_alert)),
-                  ],
-                ),
-              ),
+              const AppBarCustomWidget(),
               const SizedBox(height: AppSpaces.lg),
               Row(
                 children: [
