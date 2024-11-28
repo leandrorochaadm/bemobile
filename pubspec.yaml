@@ -20,7 +20,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - database.json
     - assets/images/logo.png
 
   fonts:

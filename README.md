@@ -1,3 +1,4 @@
+
 # Pre-requisitos
 
 É necessário ter instalado o [Flutter](https://flutter.dev/) nesta versão:
@@ -15,13 +16,19 @@ Para conferir se o Flutter foi instalado corretamente, execute o comando `flutte
 
 # Instruções pra instalar e rodar o projeto
 
-
 No execute no terminal o comando `npx json-server database.json`, para iniciar o json-server para simular a API no arquivo `database.json`.
 
 Em outro terminal execute o comando `flutter run --dart-define=API_BASE_URL=http://endreço_IP_da_sua_máquina:3000` ou a URL de outra api para rodar o projeto.
 
+Por exemplo `flutter run --dart-define=API_BASE_URL=192.168.0.1:3000`
+
 Para gerar o APK do o projeto para instalar no celular Android, execute o comando `flutter build apk` no terminal.
 
+Qual duvida entre em fale comigo:
+
+https://www.linkedin.com/in/leandrorochaadm
+
+[(11) 99711-8447 (WhatsApp)](https://wa.me/5511997118447)
 
 # Teste Técnico Mobile BeTalent
 
@@ -57,19 +64,6 @@ Datas e telefones devem ser formatadas no front-end e não na API.
 
 Tenha instaladas em sua máquina as ferramentas [Git](https://git-scm.com/), [Node.js](https://nodejs.org/en/) e [Yarn](https://yarnpkg.com/), e [React Native](https://reactnative.dev/) ou [Dart](https://dart.dev/) e [Flutter](https://flutter.dev/), para poder trabalhar no projeto.
 
-### Acesso aos dados da API simulada
-
-Para ter acesso aos dados que alimentarão o projeto, faça o seguinte:
-
-1. caso você não tenha, instale o pacote [json-server](https://github.com/typicode/json-server);
-2. clone este repositório do GitHub em sua máquina: [https://github.com/BeMobile/desafio-mobile](https://github.com/BeMobile/desafio-mobile);
-3. entre na pasta do projeto, em sua máquina, e, por meio da linha de comando, execute o comando `json-server --watch db.json`, para consumir a API simulada;
-4. inicie a estrutura e o desenvolvimento do projeto.
-
-É necessário deixar o json-server rodando no terminal para que os dados sejam visualizados no projeto.
-
-Caso você tenha problemas com o json-server, tente rodá-lo com `npx json-server db.json` ou 
-com `yarn json-server <path>/db.json`, em que `<path>` é o caminho completo até o diretório em que o arquivo db.json está localizado. Se mesmo assim não funcionar, busque ajuda na web.
 
 ### Critérios de Avaliação
 
