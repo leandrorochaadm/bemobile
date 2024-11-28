@@ -10,4 +10,5 @@ class AppSpaces {
   static const double xxl = 40.0;
   static const double xxxl = 60.0;
   static const double xxxxl = 80.0;
+  static const double xxxxxl = 100.0;
 }

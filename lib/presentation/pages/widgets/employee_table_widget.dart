@@ -17,7 +17,6 @@ class EmployeeTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(AppSpaces.md),
       decoration: BoxDecoration(
         border: Border.all(color: AppColors.gray10, width: 1.0),
         borderRadius: BorderRadius.circular(AppSpaces.xs),

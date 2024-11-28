@@ -19,15 +19,24 @@ class EmployeeListWidget extends StatelessWidget {
       child: ValueListenableBuilder<EmployeeState>(
         valueListenable: employeeNotifier,
         builder: (context, state, _) {
-          if (state is EmployeeInitialState) {
+          if (state is EmployeeErrorState) {
+            return Center(
+                child: Text(state.message, textAlign: TextAlign.center));
+          }
+
+          if (state is EmployeeLoadingState) {
+            return const Center(child: CircularProgressIndicator());
+          }
+
+          if (state is EmployeeEmptyState) {
             return const Center(
                 child: Text(
-              'Nenhum funcionário encontrado',
+              'Nenhum funcionário encontrado com o nome pesquisado',
               textAlign: TextAlign.center,
             ));
-          } else if (state is EmployeeLoadingState) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (state is EmployeeLoadedState) {
+          }
+
+          if (state is EmployeeLoadedState) {
             final employees = state.employees;
             return ListView.separated(
               itemCount: employees.length,
@@ -48,16 +57,9 @@ class EmployeeListWidget extends StatelessWidget {
                 );
               },
             );
-          } else if (state is EmployeeErrorState) {
-            final message = state.message;
-            return Center(child: Text(message, textAlign: TextAlign.center));
           }
-          return const Center(
-            child: Text(
-              'Erro inesperado, feche o app e abra novamente',
-              textAlign: TextAlign.center,
-            ),
-          );
+
+          return const SizedBox.shrink();
         },
       ),
     );

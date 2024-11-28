@@ -29,4 +29,29 @@ class EmployeeNotifier extends ValueNotifier<EmployeeState> {
 
     value = EmployeeLoadedState(employeesFormatted);
   }
+
+  Future<void> searchEmployees(String query) async {
+    if (query.isEmpty) {
+      await fetchEmployees();
+      return;
+    }
+
+    // Verifica se o estado atual é EmployeeLoadedState
+    if (value is EmployeeLoadedState) {
+      // filtra os funcinários do estado atual
+      final loadedState = value as EmployeeLoadedState;
+      final filteredEmployees = loadedState.employees
+          .where((element) =>
+              element.name.toLowerCase().contains(query.toLowerCase()))
+          .toList();
+
+      // Atualiza o estado com os resultados filtrados
+      value = EmployeeLoadedState(filteredEmployees);
+
+      // Caso não encontre resultados
+      if (filteredEmployees.isEmpty) {
+        value = EmployeeEmptyState();
+      }
+    }
+  }
 }
